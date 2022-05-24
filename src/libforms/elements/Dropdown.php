@@ -38,6 +38,13 @@ class Dropdown extends Element {
 	}
 
 	/**
+	 * @return array<int, string>
+	 */
+	public function getOptions(): array {
+		return $this->options;
+	}
+
+	/**
 	 * @return array<string, mixed>
 	 */
 	public function jsonSerialize(): array {

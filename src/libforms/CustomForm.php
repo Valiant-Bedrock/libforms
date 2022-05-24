@@ -3,9 +3,12 @@
 namespace libforms;
 
 use Closure;
+use libforms\elements\Dropdown;
 use libforms\elements\Element;
 use libforms\elements\Label;
+use libforms\elements\StepSlider;
 use pocketmine\player\Player;
+use pocketmine\utils\AssumptionFailedError;
 
 class CustomForm extends Form {
 
@@ -54,7 +57,11 @@ class CustomForm extends Form {
 			if($element === null || $element instanceof Label) {
 				continue;
 			}
-			$element->run($value);
+			$element->run(match(true) {
+				$element instanceof Dropdown => $element->getOptions()[$value] ?? throw new AssumptionFailedError("Invalid dropdown option index"),
+				$element instanceof StepSlider => $element->getSteps()[$value] ?? throw new AssumptionFailedError("Invalid step slider option index"),
+				default => $value
+			});
 		}
 		return true;
 	}
