@@ -7,6 +7,11 @@ use JsonSerializable;
 
 abstract class Element implements JsonSerializable {
 
+	/**
+	 * @noinspection PhpDocSignatureInspection
+	 * @param string $text
+	 * @param (Closure(mixed): void)|null $callable
+	 */
 	public function __construct(
 		protected string   $text,
 		protected ?Closure $callable = null
@@ -21,12 +26,23 @@ abstract class Element implements JsonSerializable {
 	 */
 	public abstract function getType(): string;
 
+	/**
+	 * Attempts to run the associated callable with the returned value
+	 *
+	 * @param mixed $data
+	 * @return void
+	 */
+	public function run(mixed $data): void {
+		$this->callable?->call($this, $data);
+	}
+
 
 	/**
-	 * @return array{type: string}
+	 * @return array{text: string, type: string}
 	 */
 	public function jsonSerialize(): array {
 		return [
+			"text" => $this->text,
 			"type" => $this->getType()
 		];
 	}
