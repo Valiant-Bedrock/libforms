@@ -37,6 +37,13 @@ class StepSlider extends Element {
 	}
 
 	/**
+	 * @return array<string>
+	 */
+	public function getSteps(): array {
+		return $this->steps;
+	}
+
+	/**
 	 * @return array<string, mixed>
 	 */
 	public function jsonSerialize(): array {
