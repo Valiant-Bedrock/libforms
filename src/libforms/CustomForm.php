@@ -46,16 +46,16 @@ class CustomForm extends Form {
 	 * @return bool
 	 */
 	public function handleFormResponse(Player $player, mixed $data): bool {
-		if(is_array($data)) {
-			foreach($data as $index => $value) {
-				$element = $this->elements[$index] ?? null;
-				if($element === null || $element instanceof Label) {
-					continue;
-				}
-				$element->run($value);
-			}
-			return true;
+		if(!is_array($data)) {
+			return false;
 		}
-		return false;
+		foreach($data as $index => $value) {
+			$element = $this->elements[$index] ?? null;
+			if($element === null || $element instanceof Label) {
+				continue;
+			}
+			$element->run($value);
+		}
+		return true;
 	}
 }
