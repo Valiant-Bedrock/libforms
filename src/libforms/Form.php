@@ -59,7 +59,6 @@ abstract class Form implements \pocketmine\form\Form {
 	 */
 	final public function handleResponse(Player $player, mixed $data): void {
 		$this->handleFormResponse($player, $data);
-		// Call the onClose callback only if the form response isn't handled
 		$this->onClose?->call($this, $player);
 	}
 
