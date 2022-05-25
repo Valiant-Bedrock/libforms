@@ -59,7 +59,9 @@ abstract class Form implements \pocketmine\form\Form {
 	 */
 	final public function handleResponse(Player $player, mixed $data): void {
 		$this->handleFormResponse($player, $data);
-		$this->onClose?->call($this, $player);
+		if($this->onClose !== null) {
+			($this->onClose)($player);
+		}
 	}
 
 	public function send(Player $player): void {
