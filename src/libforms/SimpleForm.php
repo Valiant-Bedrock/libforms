@@ -37,7 +37,7 @@ class SimpleForm extends Form {
 	 * @return array<string, array<Button>>
 	 */
 	public function getExtraData(): array {
-		return ["buttons" => $this->buttons];
+		return ["buttons" => array_values($this->buttons)];
 	}
 
 	public function handleFormResponse(Player $player, mixed $data): bool {
