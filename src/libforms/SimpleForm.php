@@ -21,6 +21,8 @@ class SimpleForm extends Form {
 		?Closure $onClose = null
 	) {
 		parent::__construct($title, $onClose);
+		// Validate button indexes
+		$this->buttons = array_values($buttons);
 	}
 
 	public function getType(): string {
@@ -37,7 +39,7 @@ class SimpleForm extends Form {
 	 * @return array<string, array<Button>>
 	 */
 	public function getExtraData(): array {
-		return ["buttons" => array_values($this->buttons)];
+		return ["buttons" => $this->buttons];
 	}
 
 	public function handleFormResponse(Player $player, mixed $data): bool {
