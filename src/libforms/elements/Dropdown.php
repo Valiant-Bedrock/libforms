@@ -21,7 +21,7 @@ class Dropdown extends Element {
 	 * @param string $text
 	 * @param array<int, string> $options
 	 * @param int $default
-	 * @param Closure|null $callable
+	 * @param Closure(string): void|null $callable
 	 */
 	public function __construct(
 		string $text,

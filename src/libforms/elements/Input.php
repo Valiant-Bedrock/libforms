@@ -17,6 +17,12 @@ use Closure;
 
 class Input extends Element {
 
+	/**
+	 * @param string $text
+	 * @param string $placeholder
+	 * @param string $default
+	 * @param Closure(string): void|null $callable
+	 */
 	public function __construct(
 		string           $text,
 		protected string $placeholder,

@@ -10,7 +10,6 @@ abstract class Element implements JsonSerializable {
 	/**
 	 * @param string $text
 	 * @param Closure|null $callable
-	 * @phpstan-param Closure(mixed): void $callable
 	 */
 	public function __construct(
 		protected string   $text,
