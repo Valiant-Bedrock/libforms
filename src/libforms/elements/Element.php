@@ -8,9 +8,9 @@ use JsonSerializable;
 abstract class Element implements JsonSerializable {
 
 	/**
-	 * @noinspection PhpDocSignatureInspection
 	 * @param string $text
-	 * @param (Closure(mixed): void)|null $callable
+	 * @param Closure|null $callable
+	 * @phpstan-param Closure(mixed): void $callable
 	 */
 	public function __construct(
 		protected string   $text,
