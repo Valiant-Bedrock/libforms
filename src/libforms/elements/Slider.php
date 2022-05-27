@@ -18,6 +18,14 @@ use pocketmine\utils\AssumptionFailedError;
 
 class Slider extends Element {
 
+	/**
+	 * @param string $text
+	 * @param int|float $minimum
+	 * @param int|float $maximum
+	 * @param int|float $step
+	 * @param int|float|null $default
+	 * @param Closure(int|float): void|null $callable
+	 */
 	public function __construct(
 		string                   $text,
 		protected int|float      $minimum,

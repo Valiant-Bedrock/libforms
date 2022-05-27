@@ -17,6 +17,11 @@ use Closure;
 
 class Toggle extends Element {
 
+	/**
+	 * @param string $text
+	 * @param bool $default
+	 * @param Closure(bool): void|null $callable
+	 */
 	public function __construct(
 		string $text,
 		protected bool $default = false,
