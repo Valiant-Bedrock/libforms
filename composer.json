@@ -21,8 +21,7 @@
   "minimum-stability": "dev",
   "require": {},
   "require-dev": {
-    "pocketmine/pocketmine-mp": ">=4.3.0",
-    "pocketmine/bedrock-protocol": ">=9.0.0+bedrock-1.18.30",
+    "pocketmine/pocketmine-mp": "dev-stable",
     "phpstan/phpstan": ">=1.6.x-dev"
   }
 }
