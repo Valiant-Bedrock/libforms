@@ -21,7 +21,7 @@ class Button implements JsonSerializable {
 	}
 
 	public function handle(Player $player): void {
-		if($this->onClick !== null) {
+		if ($this->onClick !== null) {
 			($this->onClick)($player);
 		}
 	}

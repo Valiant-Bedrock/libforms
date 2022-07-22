@@ -32,7 +32,7 @@ abstract class Element implements JsonSerializable {
 	 * @return void
 	 */
 	public function run(mixed $data): void {
-		if($this->callable !== null) {
+		if ($this->callable !== null) {
 			($this->callable)($data);
 		}
 	}
