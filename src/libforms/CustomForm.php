@@ -19,13 +19,9 @@ declare(strict_types=1);
 namespace libforms;
 
 use Closure;
-use libforms\elements\Dropdown;
 use libforms\elements\Element;
-use libforms\elements\Label;
-use libforms\elements\StepSlider;
 use pocketmine\form\FormValidationException;
 use pocketmine\player\Player;
-use pocketmine\utils\AssumptionFailedError;
 
 class CustomForm extends Form {
 
@@ -71,14 +67,10 @@ class CustomForm extends Form {
 		}
 		foreach ($data as $index => $value) {
 			$element = $this->elements[$index] ?? null;
-			if ($element === null || $element instanceof Label) {
-				continue;
+			if ($element === null) {
+				throw new FormValidationException("Received null data for element at index $index");
 			}
-			$element->run(match (true) {
-				$element instanceof Dropdown => $element->getOptions()[$value] ?? throw new FormValidationException("Invalid dropdown option index"),
-				$element instanceof StepSlider => $element->getSteps()[$value] ?? throw new FormValidationException("Invalid step slider option index"),
-				default => $value
-			});
+			$element->run($value);
 		}
 		return true;
 	}

@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace libforms\elements;
 
 use Closure;
+use pocketmine\form\FormValidationException;
 
 class Input extends Element {
 
@@ -51,4 +52,16 @@ class Input extends Element {
 		];
 	}
 
+	/**
+	 * Ensures that the input is a string.
+	 *
+	 * @param mixed $data
+	 * @return string
+	 */
+	public function processData(mixed $data): string {
+		if (!is_string($data)) {
+			throw new FormValidationException("Received non-string data for input element: " . var_export($data, true));
+		}
+		return $data;
+	}
 }

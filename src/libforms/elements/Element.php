@@ -49,6 +49,17 @@ abstract class Element implements JsonSerializable {
 	public abstract function getExtraData(): array;
 
 	/**
+	 * Allows an element to process and modify the data before it is forwarded to the callback function.
+	 * By default, this method does nothing but return the data as-is.
+	 *
+	 * @param mixed $data
+	 * @return mixed
+	 */
+	public function processData(mixed $data): mixed {
+		return $data;
+	}
+
+	/**
 	 * Attempts to run the associated callable with the returned value
 	 *
 	 * @param mixed $data
@@ -56,7 +67,9 @@ abstract class Element implements JsonSerializable {
 	 */
 	public function run(mixed $data): void {
 		if ($this->callable !== null) {
-			($this->callable)($data);
+			// Process the data before passing it to the callback function
+			$processed = $this->processData($data);
+			($this->callable)($processed);
 		}
 	}
 
