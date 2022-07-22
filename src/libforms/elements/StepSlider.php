@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace libforms\elements;
 
 use Closure;
+use pocketmine\form\FormValidationException;
 
 class StepSlider extends Element {
 
@@ -58,5 +59,22 @@ class StepSlider extends Element {
 			"steps" => $this->steps,
 			"default" => $this->default
 		];
+	}
+
+	/**
+	 * Ensures that the value is a valid int and exists in the element's steps.
+	 * If validated, the data returned is the value at the received index.
+	 *
+	 * @param mixed $data
+	 * @return string
+	 */
+	public function processData(mixed $data): string {
+		if (!is_int($data)) {
+			throw new FormValidationException("Received non-integer data for step-slider element: " . var_export($data, true));
+		}
+		if (!isset($this->steps[$data])) {
+			throw new FormValidationException("Index $data does not exist in step-slider element");
+		}
+		return $this->steps[$data];
 	}
 }

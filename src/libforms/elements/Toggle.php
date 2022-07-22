@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace libforms\elements;
 
 use Closure;
+use pocketmine\form\FormValidationException;
 
 class Toggle extends Element {
 
@@ -46,5 +47,18 @@ class Toggle extends Element {
 		return [
 			"default" => $this->default
 		];
+	}
+
+	/**
+	 * Ensures that the data is a boolean.
+	 *
+	 * @param mixed $data
+	 * @return bool
+	 */
+	public function processData(mixed $data): bool {
+		if (!is_bool($data)) {
+			throw new FormValidationException("Received non-bool data for toggle element: " . var_export($data, true));
+		}
+		return $data;
 	}
 }

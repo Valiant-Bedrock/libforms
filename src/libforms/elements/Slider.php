@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace libforms\elements;
 
 use Closure;
+use pocketmine\form\FormValidationException;
 use pocketmine\utils\AssumptionFailedError;
 
 class Slider extends Element {
@@ -57,5 +58,23 @@ class Slider extends Element {
 			"step" => $this->step,
 			"default" => $this->default ?? throw new AssumptionFailedError("Slider default value is null"),
 		];
+	}
+
+	/**
+	 * Ensures that a value is an integer/float and within the range of the slider.
+	 *
+	 * @param mixed $data
+	 * @return int|float
+	 */
+	public function processData(mixed $data): int|float {
+		//
+		if (!is_int($data) && !is_float($data)) {
+			throw new FormValidationException("Received non-numeric data for slider: " . var_export($data, true));
+		}
+		if ($data < $this->minimum && $data > $this->maximum) {
+			throw new FormValidationException("Received data out of range for slider: " . var_export($data, true));
+		}
+		// Ensure that the value is cast to the proper numerical type.
+		return floor($data) === $data ? (int) $data : (float) $data;
 	}
 }

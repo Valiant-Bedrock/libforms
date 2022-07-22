@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace libforms\elements;
 
 use Closure;
+use pocketmine\form\FormValidationException;
 
 class Dropdown extends Element {
 
@@ -59,5 +60,19 @@ class Dropdown extends Element {
 	 */
 	public function getOptions(): array {
 		return $this->options;
+	}
+
+	/**
+	 * Checks if the data passed is an int and exists in the dropdown options.
+	 * If validated, the data returned is the value at the received index.
+	 *
+	 * @param mixed $data
+	 * @return string
+	 */
+	public function processData(mixed $data): string {
+		if (!is_int($data) || !isset($this->options[$data])) {
+			throw new FormValidationException("Invalid option selected: " . var_export($data, true));
+		}
+		return $this->options[$data];
 	}
 }
