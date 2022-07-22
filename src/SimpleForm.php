@@ -19,8 +19,8 @@ declare(strict_types=1);
 namespace libforms;
 
 use Closure;
-use pocketmine\player\Player;
 use libforms\buttons\Button;
+use pocketmine\player\Player;
 
 class SimpleForm extends Form {
 
