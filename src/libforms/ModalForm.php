@@ -44,7 +44,7 @@ class ModalForm extends Form {
 	}
 
 	public function handleFormResponse(Player $player, mixed $data): bool {
-		if(!is_bool($data)) {
+		if (!is_bool($data)) {
 			return false;
 		}
 		$button = $data ? $this->primaryButton : $this->secondaryButton;

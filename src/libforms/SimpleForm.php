@@ -43,7 +43,7 @@ class SimpleForm extends Form {
 	}
 
 	public function handleFormResponse(Player $player, mixed $data): bool {
-		if(!is_int($data)) {
+		if (!is_int($data)) {
 			return false;
 		}
 		$button = $this->buttons[$data] ?? null;

@@ -49,15 +49,15 @@ class CustomForm extends Form {
 	 * @return bool
 	 */
 	public function handleFormResponse(Player $player, mixed $data): bool {
-		if(!is_array($data)) {
+		if (!is_array($data)) {
 			return false;
 		}
-		foreach($data as $index => $value) {
+		foreach ($data as $index => $value) {
 			$element = $this->elements[$index] ?? null;
-			if($element === null || $element instanceof Label) {
+			if ($element === null || $element instanceof Label) {
 				continue;
 			}
-			$element->run(match(true) {
+			$element->run(match (true) {
 				$element instanceof Dropdown => $element->getOptions()[$value] ?? throw new AssumptionFailedError("Invalid dropdown option index"),
 				$element instanceof StepSlider => $element->getSteps()[$value] ?? throw new AssumptionFailedError("Invalid step slider option index"),
 				default => $value
