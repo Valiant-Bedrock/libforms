@@ -25,7 +25,7 @@ class Dropdown extends Element {
 	/**
 	 * @param string $text
 	 * @param array<int, string> $options
-	 * @param int $default
+	 * @param int $default - The index of the option to show when rendered.
 	 * @param Closure(string): void|null $callable
 	 */
 	public function __construct(

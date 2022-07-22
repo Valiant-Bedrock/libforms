@@ -25,7 +25,7 @@ class StepSlider extends Element {
 	/**
 	 * @param string $text
 	 * @param array<string> $steps
-	 * @param int $default
+	 * @param int $default - The index of the step to display when rendered.
 	 * @param Closure(string): void|null $callable
 	 */
 	public function __construct(

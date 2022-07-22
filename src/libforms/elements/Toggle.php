@@ -24,7 +24,7 @@ class Toggle extends Element {
 
 	/**
 	 * @param string $text
-	 * @param bool $default
+	 * @param bool $default - If true, the toggle will be rendered as on. Otherwise, it will be rendered as off.
 	 * @param Closure(bool): void|null $callable
 	 */
 	public function __construct(
