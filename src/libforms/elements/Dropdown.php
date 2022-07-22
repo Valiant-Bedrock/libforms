@@ -43,19 +43,19 @@ class Dropdown extends Element {
 	}
 
 	/**
+	 * @return array{options: array<int, string>, default: int}
+	 */
+	public function getExtraData(): array {
+		return [
+			"options" => $this->options,
+			"default" => $this->default
+		];
+	}
+
+	/**
 	 * @return array<int, string>
 	 */
 	public function getOptions(): array {
 		return $this->options;
-	}
-
-	/**
-	 * @return array<string, mixed>
-	 */
-	public function jsonSerialize(): array {
-		return parent::jsonSerialize() + [
-			"options" => $this->options,
-			"default" => $this->default
-		];
 	}
 }

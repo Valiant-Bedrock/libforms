@@ -33,4 +33,11 @@ class Label extends Element {
 		return "label";
 	}
 
+	/**
+	 * @return array{}
+	 */
+	public function getExtraData(): array {
+		return [];
+	}
+
 }

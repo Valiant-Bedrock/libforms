@@ -42,6 +42,13 @@ abstract class Element implements JsonSerializable {
 	public abstract function getType(): string;
 
 	/**
+	 * Any associated data that is needed to successfully render the element.
+	 *
+	 * @return array<string, mixed>
+	 */
+	public abstract function getExtraData(): array;
+
+	/**
 	 * Attempts to run the associated callable with the returned value
 	 *
 	 * @param mixed $data
@@ -55,12 +62,12 @@ abstract class Element implements JsonSerializable {
 
 
 	/**
-	 * @return array{text: string, type: string}
+	 * @return array<string, mixed>
 	 */
 	public function jsonSerialize(): array {
 		return [
 			"text" => $this->text,
 			"type" => $this->getType()
-		];
+		] + $this->getExtraData();
 	}
 }
