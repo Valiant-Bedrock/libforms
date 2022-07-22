@@ -15,7 +15,7 @@ class CustomForm extends Form {
 	/**
 	 * @param string $title
 	 * @param array<Element> $elements
-	 * @param Closure|null $onClose
+	 * @param (Closure(Player): void)|null $onClose
 	 */
 	public function __construct(
 		string $title,

@@ -12,7 +12,7 @@ class SimpleForm extends Form {
 	 * @param string $title
 	 * @param string $content
 	 * @param array<Button> $buttons
-	 * @param Closure|null $onClose
+	 * @param (Closure(Player): void)|null $onClose
 	 */
 	public function __construct(
 		string $title,
