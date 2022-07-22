@@ -9,11 +9,8 @@ use pocketmine\player\Player;
 abstract class Form implements \pocketmine\form\Form {
 
 	/**
-	 * @noinspection PhpDocSignatureInspection - PHPStorm doesn't recognize closure signatures very well
-	 *
 	 * @param string $title
 	 * @param (Closure(Player): void)|null $onClose
-	 * @phpstan-param Closure(Player): void $onClose
 	 */
 	public function __construct(
 		protected string   $title,
