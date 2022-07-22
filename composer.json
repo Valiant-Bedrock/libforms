@@ -2,11 +2,11 @@
   "name": "valiant-bedrock/libforms",
   "description": "A small form library built for PocketMine-MP",
   "type": "library",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "version": "0.6.0",
   "autoload": {
     "psr-4": {
-      "libforms\\": "src/libforms"
+      "libforms\\": "src/"
     }
   },
   "scripts": {
