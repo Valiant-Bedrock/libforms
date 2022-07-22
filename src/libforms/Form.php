@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace libforms;
 
 use Closure;
-use pocketmine\form\FormValidationException;
 use pocketmine\player\Player;
 
 abstract class Form implements \pocketmine\form\Form {
