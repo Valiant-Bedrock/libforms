@@ -24,7 +24,7 @@ class StepSlider extends Element {
 
 	/**
 	 * @param string $text
-	 * @param array<string> $steps
+	 * @param array<int, string> $steps - A list of strings to display for each step of the slider.
 	 * @param int $default - The index of the step to display when rendered.
 	 * @param Closure(string): void|null $callable
 	 */
@@ -42,14 +42,14 @@ class StepSlider extends Element {
 	}
 
 	/**
-	 * @return array<string>
+	 * @return array<int, string>
 	 */
 	public function getSteps(): array {
 		return $this->steps;
 	}
 
 	/**
-	 * @return array{steps: array<string>, default: int}
+	 * @return array{steps: array<int, string>, default: int}
 	 */
 	public function getExtraData(): array {
 		return [

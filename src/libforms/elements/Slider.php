@@ -25,9 +25,9 @@ class Slider extends Element {
 
 	/**
 	 * @param string $text
-	 * @param int|float $minimum
-	 * @param int|float $maximum
-	 * @param int|float $step
+	 * @param int|float $minimum - The minimum value of the slider.
+	 * @param int|float $maximum - The maximum value of the slider.
+	 * @param int|float $step - The amount to increment/decrement by when the slider is moved.
 	 * @param int|float|null $default - The default value of the slider to display. If null, the slider will default to the minimum value.
 	 * @param Closure(int|float): void|null $callable
 	 */
