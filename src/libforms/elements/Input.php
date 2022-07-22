@@ -25,7 +25,7 @@ class Input extends Element {
 	/**
 	 * @param string $text
 	 * @param string $placeholder
-	 * @param string $default
+	 * @param string $default - The string value to display in the input box when rendered.
 	 * @param Closure(string): void|null $callable
 	 */
 	public function __construct(
