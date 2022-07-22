@@ -34,7 +34,10 @@ $form = new \libforms\SimpleForm(
             }
         )
     ]
-)
+);
+
+assert($player instanceof \pocketmine\player\Player);
+$form->send($player);
 ```
 
 ## Wiki
