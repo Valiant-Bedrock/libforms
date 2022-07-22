@@ -23,6 +23,7 @@ use libforms\elements\Dropdown;
 use libforms\elements\Element;
 use libforms\elements\Label;
 use libforms\elements\StepSlider;
+use pocketmine\form\FormValidationException;
 use pocketmine\player\Player;
 use pocketmine\utils\AssumptionFailedError;
 
@@ -74,8 +75,8 @@ class CustomForm extends Form {
 				continue;
 			}
 			$element->run(match (true) {
-				$element instanceof Dropdown => $element->getOptions()[$value] ?? throw new AssumptionFailedError("Invalid dropdown option index"),
-				$element instanceof StepSlider => $element->getSteps()[$value] ?? throw new AssumptionFailedError("Invalid step slider option index"),
+				$element instanceof Dropdown => $element->getOptions()[$value] ?? throw new FormValidationException("Invalid dropdown option index"),
+				$element instanceof StepSlider => $element->getSteps()[$value] ?? throw new FormValidationException("Invalid step slider option index"),
 				default => $value
 			});
 		}
