@@ -25,7 +25,6 @@ use pocketmine\player\Player;
 class ImageButton extends Button {
 
 	/**
-	 * @param string $text
 	 * @param ImageType $type - Determines where to search for the image.
 	 * @param string $source - The URL or path to the image.
 	 * @param (Closure(Player): void)|null $onClick
@@ -38,7 +37,6 @@ class ImageButton extends Button {
 	) {
 		parent::__construct($text, $onClick);
 	}
-
 
 	/**
 	 * @return array<string, mixed>

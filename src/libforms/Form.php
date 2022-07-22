@@ -24,7 +24,6 @@ use pocketmine\player\Player;
 abstract class Form implements \pocketmine\form\Form {
 
 	/**
-	 * @param string $title
 	 * @param (Closure(Player): void)|null $onClose
 	 */
 	public function __construct(
@@ -36,15 +35,11 @@ abstract class Form implements \pocketmine\form\Form {
 
 	/**
 	 * Returns the type of form (form, modal, or custom_form)
-	 *
-	 * @return string
 	 */
 	public abstract function getType() : string;
 
 	/**
 	 * Returns the content for the form (buttons, text, etc.)
-	 *
-	 * @return mixed
 	 */
 	public abstract function getContent(): mixed;
 
@@ -58,8 +53,6 @@ abstract class Form implements \pocketmine\form\Form {
 	/**
 	 * This method is called when the player first receives data from the form
 	 *
-	 * @param Player $player
-	 * @param mixed $data
 	 * @return bool - If handled, the response should return true
 	 */
 	public abstract function handleFormResponse(Player $player, mixed $data): bool;
@@ -67,7 +60,6 @@ abstract class Form implements \pocketmine\form\Form {
 	/**
 	 * @param Player $player - The player that submitted the form
 	 * @param mixed $data - Data received from the form
-	 * @return void
 	 */
 	final public function handleResponse(Player $player, mixed $data): void {
 		$this->handleFormResponse($player, $data);

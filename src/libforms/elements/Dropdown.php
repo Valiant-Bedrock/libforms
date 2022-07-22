@@ -20,11 +20,13 @@ namespace libforms\elements;
 
 use Closure;
 use pocketmine\form\FormValidationException;
+use function array_values;
+use function is_int;
+use function var_export;
 
 class Dropdown extends Element {
 
 	/**
-	 * @param string $text
 	 * @param array<int, string> $options - A list of strings to display in the dropdown.
 	 * @param int $default - The index of the option to show when rendered.
 	 * @param Closure(string): void|null $callable
@@ -39,7 +41,6 @@ class Dropdown extends Element {
 		// Validate dropdown options to prevent string keys.
 		$this->options = array_values($options);
 	}
-
 
 	public function getType(): string {
 		return "dropdown";
@@ -65,9 +66,6 @@ class Dropdown extends Element {
 	/**
 	 * Checks if the data passed is an int and exists in the dropdown options.
 	 * If validated, the data returned is the value at the received index.
-	 *
-	 * @param mixed $data
-	 * @return string
 	 */
 	public function processData(mixed $data): string {
 		if (!is_int($data) || !isset($this->options[$data])) {

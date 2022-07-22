@@ -21,14 +21,11 @@ namespace libforms;
 use Closure;
 use libforms\buttons\Button;
 use pocketmine\player\Player;
+use function is_bool;
 
 class ModalForm extends Form {
 
 	/**
-	 * @param string $title
-	 * @param string $content
-	 * @param Button $primaryButton
-	 * @param Button $secondaryButton
 	 * @param (Closure(Player): void)|null $onClose
 	 */
 	public function __construct(

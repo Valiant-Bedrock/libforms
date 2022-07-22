@@ -20,11 +20,13 @@ namespace libforms\elements;
 
 use Closure;
 use pocketmine\form\FormValidationException;
+use function array_values;
+use function is_int;
+use function var_export;
 
 class StepSlider extends Element {
 
 	/**
-	 * @param string $text
 	 * @param array<int, string> $steps - A list of strings to display for each step of the slider.
 	 * @param int $default - The index of the step to display when rendered.
 	 * @param Closure(string): void|null $callable
@@ -64,9 +66,6 @@ class StepSlider extends Element {
 	/**
 	 * Ensures that the value is a valid int and exists in the element's steps.
 	 * If validated, the data returned is the value at the received index.
-	 *
-	 * @param mixed $data
-	 * @return string
 	 */
 	public function processData(mixed $data): string {
 		if (!is_int($data)) {

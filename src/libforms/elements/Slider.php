@@ -21,11 +21,14 @@ namespace libforms\elements;
 use Closure;
 use pocketmine\form\FormValidationException;
 use pocketmine\utils\AssumptionFailedError;
+use function floor;
+use function is_float;
+use function is_int;
+use function var_export;
 
 class Slider extends Element {
 
 	/**
-	 * @param string $text
 	 * @param int|float $minimum - The minimum value of the slider.
 	 * @param int|float $maximum - The maximum value of the slider.
 	 * @param int|float $step - The amount to increment/decrement by when the slider is moved.
@@ -62,9 +65,6 @@ class Slider extends Element {
 
 	/**
 	 * Ensures that a value is an integer/float and within the range of the slider.
-	 *
-	 * @param mixed $data
-	 * @return int|float
 	 */
 	public function processData(mixed $data): int|float {
 		//

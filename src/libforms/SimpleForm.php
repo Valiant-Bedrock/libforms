@@ -21,12 +21,12 @@ namespace libforms;
 use Closure;
 use libforms\buttons\Button;
 use pocketmine\player\Player;
+use function array_values;
+use function is_int;
 
 class SimpleForm extends Form {
 
 	/**
-	 * @param string $title
-	 * @param string $content
 	 * @param array<int, Button> $buttons
 	 * @param (Closure(Player): void)|null $onClose
 	 */

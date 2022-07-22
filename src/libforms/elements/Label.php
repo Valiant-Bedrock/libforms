@@ -22,8 +22,6 @@ class Label extends Element {
 
 	/**
 	 * Given that labels are not intended to receive data, we can remove the `callable` parameter here.
-	 *
-	 * @param string $text
 	 */
 	public function __construct(string $text) {
 		parent::__construct($text);
