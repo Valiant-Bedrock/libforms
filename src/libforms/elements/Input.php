@@ -37,18 +37,18 @@ class Input extends Element {
 		parent::__construct($text, $callable);
 	}
 
-
 	public function getType(): string {
 		return "input";
 	}
 
 	/**
-	 * @return array<string, mixed>
+	 * @return array{placeholder: string, default: string}
 	 */
-	public function jsonSerialize(): array {
-		return parent::jsonSerialize() + [
+	public function getExtraData(): array {
+		return [
 			"placeholder" => $this->placeholder,
 			"default" => $this->default,
 		];
 	}
+
 }

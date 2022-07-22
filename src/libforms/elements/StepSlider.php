@@ -49,10 +49,10 @@ class StepSlider extends Element {
 	}
 
 	/**
-	 * @return array<string, mixed>
+	 * @return array{steps: array<string>, default: int}
 	 */
-	public function jsonSerialize(): array {
-		return parent::jsonSerialize() + [
+	public function getExtraData(): array {
+		return [
 			"steps" => $this->steps,
 			"default" => $this->default
 		];

@@ -40,10 +40,10 @@ class Toggle extends Element {
 	}
 
 	/**
-	 * @return array<string, mixed>
+	 * @return array{default: bool}
 	 */
-	public function jsonSerialize(): array {
-		return parent::jsonSerialize() + [
+	public function getExtraData(): array {
+		return [
 			"default" => $this->default
 		];
 	}

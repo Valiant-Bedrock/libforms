@@ -48,10 +48,10 @@ class Slider extends Element {
 	}
 
 	/**
-	 * @return array<string, mixed>
+	 * @return array{min: int|float, max: int|float, step: int|float, default: int|float}
 	 */
-	public function jsonSerialize(): array {
-		return parent::jsonSerialize() + [
+	public function getExtraData(): array {
+		return [
 			"min" => $this->minimum,
 			"max" => $this->maximum,
 			"step" => $this->step,
