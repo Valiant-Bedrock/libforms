@@ -3,11 +3,18 @@ A small form library built for PocketMine-MP
 
 ## Installation
 This library can be installed using Composer:
+
+### Composer:
 ```
 composer require valiant-bedrock/libforms
 ```
 
+### Virion (Poggit):
+Virion support can be accessed through Poggit using [this link](https://poggit.pmmp.io/ci/Valiant-Bedrock/libforms/~).
+
 ## Usage
+Usage of the library is very simple and straightforward.
+The following sections will walk you through each part of the library and show an example on how each can be used.
 
 ## Form Objects
 
