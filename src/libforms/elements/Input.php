@@ -20,11 +20,12 @@ namespace libforms\elements;
 
 use Closure;
 use pocketmine\form\FormValidationException;
+use function is_string;
+use function var_export;
 
 class Input extends Element {
 
 	/**
-	 * @param string $text
 	 * @param string $placeholder - The string value to display when the input is empty.
 	 * @param string $default - The string value to display in the input box when rendered.
 	 * @param Closure(string): void|null $callable
@@ -54,9 +55,6 @@ class Input extends Element {
 
 	/**
 	 * Ensures that the input is a string.
-	 *
-	 * @param mixed $data
-	 * @return string
 	 */
 	public function processData(mixed $data): string {
 		if (!is_string($data)) {

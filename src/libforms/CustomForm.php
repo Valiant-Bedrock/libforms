@@ -22,11 +22,11 @@ use Closure;
 use libforms\elements\Element;
 use pocketmine\form\FormValidationException;
 use pocketmine\player\Player;
+use function is_array;
 
 class CustomForm extends Form {
 
 	/**
-	 * @param string $title
 	 * @param array<Element> $elements
 	 * @param (Closure(Player): void)|null $onClose
 	 */
@@ -56,11 +56,6 @@ class CustomForm extends Form {
 		return [];
 	}
 
-	/**
-	 * @param Player $player
-	 * @param mixed $data
-	 * @return bool
-	 */
 	public function handleFormResponse(Player $player, mixed $data): bool {
 		if (!is_array($data)) {
 			return false;

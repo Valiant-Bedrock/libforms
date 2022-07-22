@@ -20,11 +20,12 @@ namespace libforms\elements;
 
 use Closure;
 use pocketmine\form\FormValidationException;
+use function is_bool;
+use function var_export;
 
 class Toggle extends Element {
 
 	/**
-	 * @param string $text
 	 * @param bool $default - If true, the toggle will be rendered as on. Otherwise, it will be rendered as off.
 	 * @param Closure(bool): void|null $callable
 	 */
@@ -51,9 +52,6 @@ class Toggle extends Element {
 
 	/**
 	 * Ensures that the data is a boolean.
-	 *
-	 * @param mixed $data
-	 * @return bool
 	 */
 	public function processData(mixed $data): bool {
 		if (!is_bool($data)) {

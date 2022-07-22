@@ -18,7 +18,6 @@ declare(strict_types=1);
 
 namespace libforms\buttons;
 
-
 use Closure;
 use JsonSerializable;
 use pocketmine\player\Player;
@@ -26,7 +25,6 @@ use pocketmine\player\Player;
 class Button implements JsonSerializable {
 
 	/**
-	 * @param string $text
 	 * @param (Closure(Player): void)|null $onClick
 	 */
 	public function __construct(
