@@ -26,8 +26,8 @@ class ImageButton extends Button {
 
 	/**
 	 * @param string $text
-	 * @param ImageType $type
-	 * @param string $source
+	 * @param ImageType $type - Determines where to search for the image.
+	 * @param string $source - The URL or path to the image.
 	 * @param (Closure(Player): void)|null $onClick
 	 */
 	public function __construct(
