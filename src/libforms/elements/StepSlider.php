@@ -35,6 +35,8 @@ class StepSlider extends Element {
 		?Closure $callable = null
 	) {
 		parent::__construct($text, $callable);
+		// Validate slider steps to prevent string keys.
+		$this->steps = array_values($steps);
 	}
 
 	public function getType(): string {

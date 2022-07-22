@@ -35,6 +35,8 @@ class Dropdown extends Element {
 		?Closure $callable = null
 	) {
 		parent::__construct($text, $callable);
+		// Validate dropdown options to prevent string keys.
+		$this->options = array_values($options);
 	}
 
 

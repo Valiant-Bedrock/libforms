@@ -27,7 +27,7 @@ class SimpleForm extends Form {
 	/**
 	 * @param string $title
 	 * @param string $content
-	 * @param array<Button> $buttons
+	 * @param array<int, Button> $buttons
 	 * @param (Closure(Player): void)|null $onClose
 	 */
 	public function __construct(
@@ -37,7 +37,7 @@ class SimpleForm extends Form {
 		?Closure $onClose = null
 	) {
 		parent::__construct($title, $onClose);
-		// Validate button indexes
+		// Validate button indexes to prevent string keys.
 		$this->buttons = array_values($buttons);
 	}
 
