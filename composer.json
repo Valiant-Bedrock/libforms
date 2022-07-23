@@ -3,10 +3,10 @@
   "description": "A small form library built for PocketMine-MP",
   "type": "library",
   "license": "MIT",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "autoload": {
     "psr-4": {
-      "libforms\\": "src/"
+      "libforms\\": "src/libforms"
     }
   },
   "scripts": {
