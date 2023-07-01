@@ -3,7 +3,7 @@
   "description": "A small form library built for PocketMine-MP",
   "type": "library",
   "license": "MIT",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "autoload": {
     "psr-4": {
       "libforms\\": "src/libforms"
@@ -24,7 +24,7 @@
     "php": ">=8.2"
   },
   "require-dev": {
-    "pocketmine/pocketmine-mp": "dev-legacy/pm4",
+    "pocketmine/pocketmine-mp": "dev-stable",
     "phpstan/phpstan": "1.10.15",
     "friendsofphp/php-cs-fixer": "v3.17.0"
   }
