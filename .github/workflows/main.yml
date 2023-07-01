@@ -21,8 +21,6 @@ jobs:
       - name: Install Composer
         run: curl -sS https://getcomposer.org/installer | ${{ env.PHP_BINARY_PATH }}
       - name: Install Composer dependencies
-        env:
-          COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{secrets.COMPOSER_AUTH_TOKEN}}"} }' # [tl! **]
         run: ${{ env.PHP_BINARY_PATH }} composer.phar install --prefer-dist --no-interaction
       # PHPStan
       - name: Run PHPStan
