@@ -20,7 +20,9 @@ namespace libforms\elements;
 
 use Closure;
 use pocketmine\form\FormValidationException;
+use function array_keys;
 use function array_values;
+use function gettype;
 use function is_int;
 use function var_export;
 
