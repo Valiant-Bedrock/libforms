@@ -3,14 +3,15 @@
   "description": "A small form library built for PocketMine-MP",
   "type": "library",
   "license": "MIT",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "autoload": {
     "psr-4": {
       "libforms\\": "src/libforms"
     }
   },
   "scripts": {
-    "analyze": "./vendor/bin/phpstan analyze"
+    "analyze": "./vendor/bin/phpstan analyze",
+    "run-cs-fixer": "./vendor/bin/php-cs-fixer fix --diff --ansi"
   },
   "authors": [
     {
@@ -21,7 +22,7 @@
   "minimum-stability": "dev",
   "require": {},
   "require-dev": {
-    "pocketmine/pocketmine-mp": "dev-stable",
+    "pocketmine/pocketmine-mp": "dev-legacy/pm4",
     "friendsofphp/php-cs-fixer": "v3.9.5",
     "phpstan/phpstan": "1.8.2"
   }

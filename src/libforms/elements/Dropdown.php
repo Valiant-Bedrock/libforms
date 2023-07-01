@@ -27,19 +27,20 @@ use function var_export;
 class Dropdown extends Element {
 
 	/**
-	 * @param array<int, string> $options - A list of strings to display in the dropdown.
+	 * @param string $text - The text to display next to the dropdown.
+	 * @param array<string> $options - A list of strings to display in the dropdown.
 	 * @param int $default - The index of the option to show when rendered.
-	 * @param Closure(string): void|null $callable
+	 * @param (Closure(($callWithKey is true ? array-key : string)): void)|null $callable
+	 * @param bool $callWithKey - Whether to call the callable with the key of the selected option rather than the value.
 	 */
 	public function __construct(
 		string $text,
 		protected array $options = [],
 		protected int $default = 0,
-		?Closure $callable = null
+		?Closure $callable = null,
+		protected bool $callWithKey = false
 	) {
 		parent::__construct($text, $callable);
-		// Validate dropdown options to prevent string keys.
-		$this->options = array_values($options);
 	}
 
 	public function getType(): string {
@@ -51,26 +52,38 @@ class Dropdown extends Element {
 	 */
 	public function getExtraData(): array {
 		return [
-			"options" => $this->options,
+			"options" => array_values($this->options),
 			"default" => $this->default
 		];
 	}
 
 	/**
-	 * @return array<int, string>
+	 * @return array<string>
 	 */
 	public function getOptions(): array {
 		return $this->options;
 	}
 
 	/**
+	 * @return array-key
+	 */
+	private function fetchKeyFromIndex(int $index): int|string {
+		$keys = array_keys($this->options);
+		return $keys[$index];
+	}
+
+	/**
 	 * Checks if the data passed is an int and exists in the dropdown options.
 	 * If validated, the data returned is the value at the received index.
 	 */
-	public function processData(mixed $data): string {
-		if (!is_int($data) || !isset($this->options[$data])) {
+	public function processData(mixed $data): int|string {
+		if (!is_int($data)) {
+			throw new FormValidationException("Expected int, got " . gettype($data));
+		}
+		$key = $this->fetchKeyFromIndex($data);
+		if (!isset($this->options[$key])) {
 			throw new FormValidationException("Invalid option selected: " . var_export($data, true));
 		}
-		return $this->options[$data];
+		return $this->callWithKey ? $key : $this->options[$key];
 	}
 }
